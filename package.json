@@ -1,0 +1,30 @@
+{
+    "name": "lws-node",
+    "description": "A super-lightweight web server with file/directory support.",
+    "version": "0.1.0",
+    "author": {
+        "name" : "Cole Schaefer",
+        "email" : "me@imbypass.pw"
+    },
+    "contributors": [
+		{
+            "name" : "Cole Schaefer",
+            "email" : "me@imbypass.pw"
+        }
+	],
+	"dependencies": {
+		"request": "2.x.x",
+		"fs": "0.0.2",
+		"url": "0.11.x"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/coleschaefer/lightweight-web-server.git"
+	},
+	"bugs": {
+		"url": "http://github.com/coleschaefer/lightweight-web-server/issues"
+	},
+    "main": "server.js",
+    "readmeFilename": "README.md",
+    "license": "MIT"
+}
