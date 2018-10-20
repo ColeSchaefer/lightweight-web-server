@@ -3,7 +3,7 @@ Lightweight Web Server (LWS)
 
 A _super_ lightweight way to run a web server in Node.js
 
-**v0.1.1**
+**v0.1.2**
 
 ## About
 This is a super lightweight web server built using Node.js.
