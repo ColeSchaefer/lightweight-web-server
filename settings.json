@@ -1,0 +1,26 @@
+{
+    "server": {
+        "port": 8082,
+        "root": "./www/"
+    },
+    
+    "templates": {
+        "index": "./templates/index.html",
+        "404": "./templates/404.html"
+    },
+    
+    "mimetypes": {
+        "html": "text/html",
+       "css": "text/css",
+       "js": "application/javascript",
+       "txt": "text/plain",
+       "png": "image/png",
+       "jpg": "image/jpeg",
+       "jpeg": "image/jpeg",
+       "gif": "image/gif",
+       "ico": "image/x-icon",
+       "ttf": "application/x-font-ttf",
+       "otf": "application/x-font-otf",
+       "bin": "application/octet-stream"
+    }
+}

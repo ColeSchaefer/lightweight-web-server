@@ -1,4 +1,6 @@
+/* Lightweight Web Server page styling */
 body {
+    font-family: 'Helvetica';
     text-align: center;
-    margin-top: 10px;
+    margin-top: 50px;
 }
