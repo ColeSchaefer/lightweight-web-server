@@ -3,10 +3,10 @@ Lightweight Web Server (LWS)
 
 A _super_ lightweight way to run a web server in Node.js
 
-**v0.1.0**
+**v0.1.1**
 
 ## About
-This is a super lightweight web server (~1,000kb) built using Node.js.
+This is a super lightweight web server built using Node.js.
 I may update this in the future, but for now, it is as complete as it
 needs to be. This is nowhere near complete enough to run a production
 site. It was designed solely for small scripts/sites to run without any
@@ -18,14 +18,14 @@ barebones. There are no added/extra features built into the web server.
 Lightweight Web Server offers:
 * File/directory support.
 * `index.html` directory indexes.
-* A basic 404 error.
+* A basic template system for errors and directory listing.
 
 ## Requirements
-* A computer with Node.js installed.
+* Node.js (I use Node 9 for testing and development)
 
 ## Known Issues
-Currently, the Lightweight Web Server does not run PHP scripts. This is
-**not** likely subject to change, considering the nature of LWS.
+* Currently, the Lightweight Web Server does not run PHP scripts. This is **not** likely subject to change, considering the nature of LWS.
+* LWS does not support SSL encryption, though it may in the future.
 
 ## Installation 
 Installing the Lightweight Web Server is amazingly easy.
@@ -40,16 +40,6 @@ Use the commands below to clone the repository and install LWS.
 
 The standard port for the LWS is port `80` and by default it will use
 `./www/` as the working directory for any hosted files. Both the port
-and root are changeable inside `./config/settings.json`. If you don't
+and root are changeable inside `./settings.json`. If you don't
 wish to change these variables, you can immediately begin using LWS by
 dropping any files into the `./www` folder.
-
-## Contribute
-
-Contribute by cloning the repository and start making changes to make
-it better. This is by absolutely no means a be-all-end-all web server.
-This was solely created for light projects and as a learning example
-for Node.js and web request handling.
-
-If you want to make a donation, feel free to do so to my PayPal account: coleschaefer1@gmail.com.
-Coffee is always appreciated and it certainly helps to keep the motivation going.
