@@ -79,7 +79,7 @@ function createDirectoryListing(dir, pathname, req) {
             dirList += '</a>';
             dirList += '</td>';
             dirList += '<td style="float:right;">'
-            dirList +=  getPrettySize(fInfo.size);
+            dirList +=  getPrettySize(fInfo);
             dirList += '</td>';
             dirList += '</tr>';
             if(dirArr.length > 1) dirList += "\r\n";
@@ -91,23 +91,29 @@ function createDirectoryListing(dir, pathname, req) {
     stringBuilder = stringBuilder.toString().replace(/{{LISTING}}/g, dirList);
     return stringBuilder;
 }
-function getPrettySize(size) {
+function getPrettySize(info) {
+    let size = info.size;
     let ext = 'bytes';
-    if (size > 1024) {
-        ext = 'kb';
-        size /= 1024;
-        
+    
+    if (info.mode == '16877') {
+        return 'Dir';
+    } else {
         if (size > 1024) {
-            ext = 'MB';
+            ext = 'kb';
             size /= 1024;
             
             if (size > 1024) {
-                ext = 'GB';
+                ext = 'MB';
                 size /= 1024;
+                
+                if (size > 1024) {
+                    ext = 'GB';
+                    size /= 1024;
+                }
             }
         }
+        return (roundTo(size, 2)).toString() + ' ' + ext.toString();
     }
-    return (roundTo(size, 2)).toString() + ' ' + ext.toString();
 }
 function roundTo(n, digits) {
     if (digits === undefined)
