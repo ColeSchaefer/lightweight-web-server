@@ -16,12 +16,13 @@ extra bulk.
 The Lightweight Web Server is as light as it is because it is amazingly
 barebones. There are no added/extra features built into the web server.
 Lightweight Web Server offers:
-* File/directory support.
-* `index.html` directory indexes.
-* A basic template system for errors and directory listing.
+* File/directory loading support.
+* Automatic directory index detection.
+* Indexed directory listing.
+* Templated error pages and directory listing.
 
 ## Requirements
-* Node.js (I use Node 9 for testing and development)
+* Node.js (I use v9.2.1 for testing and development)
 
 ## Known Issues
 * Currently, the Lightweight Web Server does not run PHP scripts. This is **not** likely subject to change, considering the nature of LWS.
