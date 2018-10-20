@@ -72,9 +72,6 @@ function createDirectoryListing(dir, pathname, req) {
             let fName = rootDirectory + pathname.substr(1) + '/' + f;
             let fInfo = fs.statSync(fName);
             
-            console.log('File info for ' + fName + ':');
-            console.log(fInfo);
-            
             dirList += '<tr>';
             dirList += '<td>';
             dirList += '<a href="http://' + req.headers.host +'/'+ pathname.substr(1) + '/' + f + '">';
