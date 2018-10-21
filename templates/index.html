@@ -2,11 +2,30 @@
 <html> 
     <head>
         <title>Index of {{DIRECTORY}}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <style>
+            body {
+                font-family: Helvetica;
+                margin-top: 25px;
+            }
+            /* Desktop Version */
+            .listing {
+                width: 30%;
+                text-align: left;
+            }
+            /* Mobile Version */
+            @media screen and (max-width: 481px){
+                .listing {
+                    width: 85%;
+                    text-align: left;
+                }
+            }
+        </style>
     </head>
     <body style="font-family:Helvetica;margin-top:25px;">
         <center>
             <h1>Index of {{DIRECTORY}}</h1>
-            <table style="width: 25%; text-align:left;">
+            <table class="listing">
                 <tr><th>Name</th><th style="float:right;">Size</th></tr>
                 {{LISTING}}
             </table>

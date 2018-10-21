@@ -92,20 +92,16 @@ function createDirectoryListing(dir, pathname, req) {
     return stringBuilder;
 }
 function getPrettySize(info) {
+    // TODO: Determine if file is a directory or not.
     let size = info.size;
     let ext = 'bytes';
     let sizes = ['KB', 'MB', 'GB', 'TB'];
-    
-    if (info.mode == '16877') {
-        return 'Dir';
-    } else {
-        for(let i = 0; i < sizes.length; i++) {
-            if(size > 1024) {
-                ext = sizes[i];
-                size /= 1024;
-            } else { 
-                return (roundTo(size, 2)).toString() + ' ' + ext.toString();
-            }
+    for(let i = 0; i < sizes.length; i++) {
+        if(size > 1024) {
+            ext = sizes[i];
+            size /= 1024;
+        } else { 
+            return (roundTo(size, 2)).toString() + ' ' + ext.toString();
         }
     }
 }
