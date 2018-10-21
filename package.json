@@ -1,7 +1,7 @@
 {
     "name": "lightweight-web-server",
     "description": "A super-lightweight web server with file/directory support.",
-    "version": "0.1.0",
+    "version": "0.1.4",
     "author": {
         "name" : "Cole Schaefer",
         "email" : "me@imbypass.pw"
@@ -15,7 +15,8 @@
 	"dependencies": {
 		"request": "2.x.x",
 		"fs": "0.0.2",
-		"url": "0.11.x"
+		"url": "0.11.x",
+		"express": "4.x.x"
 	},
 	"repository": {
 		"type": "git",
