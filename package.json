@@ -15,8 +15,7 @@
 	"dependencies": {
 		"request": "2.x.x",
 		"fs": "0.0.2",
-		"url": "0.11.x",
-		"express": "4.x.x"
+		"url": "0.11.x"
 	},
 	"repository": {
 		"type": "git",

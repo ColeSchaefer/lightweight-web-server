@@ -1,19 +1,16 @@
 const config = require("./settings.json");
-const express = require('express');
 const http = require('http');
 const url = require('url');
 const fs = require('fs');
 
-const app = express();
-
-app.use((request, response) => {
+http.createServer((request, response) => {
     let pathname = url.parse(request.url).pathname;
     
     // Remove the trailing slash
     if (pathname[pathname.length - 1] == '/')
         pathname = pathname.substr(0, pathname.length - 1);
     
-    logWithTimestamp("Request for " + pathname + " received.");
+    logWithTimestamp(request.method + " " + pathname + "");
     
     // Determine the file extension
     let fileExtArr = pathname.split('.');
@@ -79,10 +76,7 @@ app.use((request, response) => {
             return;
         }
     });
-});
-app.listen(9999);
-
-http.createServer(app).listen(config.server.port);
+}).listen(config.server.port);
 logWithTimestamp('Listening on port '.concat(config.server.port));
 
 // Return the mime type of a file
@@ -100,9 +94,9 @@ function getFilePermissions(info) {
     ];
     let modeNum = [4, 4, 4];
     
-    for (let i = 0; i < 3; i++) {
-        for (let j = 0; j < 3; j++) {
-            if (mode & parseInt(modes[i][j], 10)) modeNum[i]++;
+    for (let i = 0; i < modes.length; i++) {
+        for (let j = 0; j < modes[i].length; j++) {
+            if (mode & parseInt(modes[i][j])) modeNum[i]++;
         }
     }
     
@@ -160,14 +154,14 @@ function createDirectoryListing(dir, pathname, req) {
     dirList += '<tr><td>';
     dirList += '<a href="http://' + req.headers.host + pathname + '/./">.</a>';
     dirList += '</td><td>';
-    dirList += '----';
+    dirList += '&nbsp;';
     dirList += '</td><td>Dir</td></tr>';
     
     // Add a previous directory option
     dirList += '<tr><td>';
     dirList += '<a href="http://' + req.headers.host + pathname + '/../">..</a>';
     dirList += '</td><td>';
-    dirList += '----';
+    dirList += '&nbsp;';
     dirList += '</td><td>Dir</td></tr>';
     
     // If the directory has content
