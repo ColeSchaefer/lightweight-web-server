@@ -1,6 +1,8 @@
 Lightweight Web Server (LWS)
 =========
 
+[![Build Status](https://travis-ci.com/ColeSchaefer/lightweight-web-server.svg?branch=master)](https://travis-ci.com/ColeSchaefer/lightweight-web-server)
+
 A _super_ lightweight way to run a web server in Node.js
 
 **v0.1.4**
