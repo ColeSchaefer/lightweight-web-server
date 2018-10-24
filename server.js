@@ -40,19 +40,19 @@ http.createServer((request, response) => {
                         // Get the index file extension.
                         let indexFileArr = indexFile.split('.');
                         let indexExt = indexFileArr[indexFileArr.length - 1];
-                        if(errr) { 
+                        if (errr) { 
                             switch (errr.code) {
                                 // No index file found for directory. Display directory listing instead.
                                 case 'ENOENT':
                                 default:
-                                    response.writeHead(200, {'Content-Type': getMimeType(indexExt)});
+                                    response.writeHead(200, { 'Content-Type': getMimeType(indexExt) });
                                     response.write(createDirectoryListing(reqFile, pathname, request));
                                     response.end();
                                     break;
                             }
                         } else {
                             // Display the index file.
-                            response.writeHead(200, {'Content-Type': getMimeType(indexExt)});
+                            response.writeHead(200, { 'Content-Type': getMimeType(indexExt) });
                             response.write(data.toString());
                             response.end();
                         }
@@ -63,14 +63,14 @@ http.createServer((request, response) => {
                 case 'ENOENT':
                 default:
                     let errorCode = 404;
-                    response.writeHead(errorCode, {'Content-Type': getMimeType('html')});
+                    response.writeHead(errorCode, { 'Content-Type': getMimeType('html') });
                     response.write(fs.readFileSync('./templates/' + errorCode + '.html'));
                     response.end();
                     break;
             }
         // Requested resource was found! Displaying content of resource.
         } else {
-            response.writeHead(200, {'Content-Type': getMimeType(fileExtension)});
+            response.writeHead(200, { 'Content-Type': getMimeType(fileExtension) });
             response.write(data);	
             response.end();	
             return;
@@ -104,13 +104,13 @@ function getFilePermissions(info) {
 }
 // Get human-readable size of a file
 function getFileSize(info) {
-    if(info.isDirectory()) return 'Dir';
-    if(info.isFile()) {
+    if (info.isDirectory()) return 'Dir';
+    if (info.isFile()) {
         let size = info.size;
         let ext = 'B';
         let sizes = ['KB', 'MB', 'GB', 'TB'];
-        for(let i = 0; i < sizes.length; i++) {
-            if(size > 1024) {
+        for (let i = 0; i < sizes.length; i++) {
+            if (size > 1024) {
                 ext = sizes[i];
                 size /= 1024;
             } else { 
@@ -126,13 +126,13 @@ function roundTo(n, digits) {
     
     let multiplicator = Math.pow(10, digits);
     n = parseFloat((n * multiplicator).toFixed(11));
-    let test =(Math.round(n) / multiplicator);
+    let test = (Math.round(n) / multiplicator);
     return +(test.toFixed(digits));
 }
 // Get content between 2 strings
 function getBetween(content, start, end) {
   let arr = content.split(start);
-  if(arr[1]) {
+  if (arr[1]) {
     return arr[1].split(end)[0];
   }
   return '';
@@ -165,7 +165,7 @@ function createDirectoryListing(dir, pathname, req) {
     dirList += '</td><td>Dir</td></tr>';
     
     // If the directory has content
-    if(dirArr.length > 0) {
+    if (dirArr.length > 0) {
         // Add each resource to the directory listing..
         dirArr.forEach(function(f) {
             let fName = config.server.root + pathname.substr(1) + '/' + f;
@@ -176,11 +176,11 @@ function createDirectoryListing(dir, pathname, req) {
             dirList += '<tr><td>';
             dirList += '<a href="http://' + req.headers.host + pathname + '/' + f + '">' + f + '</a>';
             dirList += '</td><td>';
-            dirList +=  getFilePermissions(fInfo);
+            dirList += getFilePermissions(fInfo);
             dirList += '</td><td>';
-            dirList +=  getFileSize(fInfo);
+            dirList += getFileSize(fInfo);
             dirList += '</td></tr>';
-            if(dirArr.length > 1) dirList += "\r\n";
+            if (dirArr.length > 1) dirList += "\r\n";
         });
     }
     
